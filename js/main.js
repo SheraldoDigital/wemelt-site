@@ -4,8 +4,12 @@
    ========================================================================== */
 
 import { initLandscapes } from './landscapes.js';
+import { initHeaderOffset } from './header-offset.js';
 
-const start = () => initLandscapes(document);
+const start = () => {
+  initHeaderOffset(document);
+  initLandscapes(document);
+};
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', start, { once: true });

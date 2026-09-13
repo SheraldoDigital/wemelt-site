@@ -196,5 +196,24 @@
      ---------------------------------------------------------------------- */
   --pad-x: clamp(16px, 3vw, 48px);
   --pad-y: clamp(32px, 4vw, 64px);
-  --header-h: 52px;
+  /* Sticky-header height, used by `scroll-padding-top` so anchored sections
+     never land underneath the header.
+
+     The header is neither a fixed height nor monotonic: at >=620px it is one
+     row (53px); between ~561 and ~620 the nav wraps internally while the
+     brandmark is still shown (82px); at <=560px the nav moves to its own
+     full-width row (69px); below ~400px the nav links themselves wrap (99px).
+     Those thresholds depend on the width of the nav text, so media queries
+     alone would be brittle.
+
+     js/header-offset.js measures the real header and overwrites this variable,
+     making the offset exact at any width. The values below are the no-JS
+     fallbacks — each is the worst case for its band, so a section is never
+     hidden, only occasionally given a little extra clearance. */
+  --header-h: 53px;
 }
+
+/* --- no-JS fallbacks for --header-h (see note in :root) ------------------- */
+@media (max-width: 700px) { :root { --header-h: 85px; } }
+@media (max-width: 560px) { :root { --header-h: 72px; } }
+@media (max-width: 400px) { :root { --header-h: 105px; } }

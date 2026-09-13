@@ -112,10 +112,12 @@ way, or remove the Plantin files before making it public.
 - Bump `ICON_V` in `scripts/build-index.py` whenever the favicons change. The
   browser favicon cache ignores `Cache-Control` and survives hard reloads.
 
-## Known open item
+## Anchor offset
 
-Anchor navigation uses a fixed `scroll-padding-top: 52px`, but the sticky header
-grows to 69 px at 390 px wide and 99 px at 340 px, so a jumped-to section sits
-17–47 px under the header on small screens. Fix pending.
+`scroll-padding-top` reads `--header-h`. The sticky header is neither a fixed
+height nor monotonic — it changes as the nav wraps, and those wrap points move
+with the width of the nav text — so `js/header-offset.js` measures the real
+element and publishes the value. `tokens.css` carries per-band worst-case
+fallbacks so the no-JS path still clears the header.
 
 See `DESIGN-NOTES.md` for the full record of decisions, measurements and known items.
