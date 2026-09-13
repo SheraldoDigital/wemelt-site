@@ -1,0 +1,64 @@
+/* ==========================================================================
+   SPLIT PANEL — the shared two-up layout behind Material Landscapes,
+   Custom Editions and Plastic Guardians: one text half, one image half.
+   Modifier controls which side the image sits on and the panel's colour.
+   ========================================================================== */
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  border-bottom: 1px solid var(--wm-charcoal);
+}
+
+.split__text {
+  background: var(--wm-light-grey);
+  padding: var(--pad-y) var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(20px, 2.5vw, 32px);
+  min-height: 68vh;
+}
+
+.split__media { min-height: 68vh; }
+
+/* text on the left → the divider belongs to the text column */
+.split--text-first .split__text { border-right: 1px solid var(--wm-charcoal); }
+/* image on the left → the divider belongs to the media column */
+.split--media-first .split__media { border-right: 1px solid var(--wm-charcoal); }
+
+/* Guardians: Deep Navy panel, light type, heading warms on hover.
+   Navy — not Charcoal — is what the approved design specifies here; it is the
+   one place besides the hero where the brand colour becomes a full field. */
+.split__text--navy { background: var(--wm-deep-navy); }
+.split__text--navy .split__title { color: var(--wm-light-grey); transition: color 280ms ease; }
+.split__text--navy:hover .split__title { color: var(--wm-molten-coral); }
+
+.split__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.split__cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.split__cta-lead {
+  font-family: var(--font-clash);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--wm-deep-navy);
+}
+
+@media (max-width: 679px) {
+  .split--text-first .split__text,
+  .split--media-first .split__media { border-right: 0; }
+  .split__text { min-height: 0; padding: var(--pad-y) var(--pad-x); }
+  .split__media { min-height: 52vh; }
+}

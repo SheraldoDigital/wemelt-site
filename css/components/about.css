@@ -1,0 +1,119 @@
+/* ==========================================================================
+   ABOUT — tonal lettermark watermark, Plantin statement, process line
+   ========================================================================== */
+
+.about {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--wm-charcoal);
+  background: var(--wm-light-grey);
+}
+
+/* oversized Lettermark, low contrast — supports the composition, never reads
+   as information (brand system: "the Tonal Lettermark recedes") */
+.about__watermark {
+  position: absolute;
+  right: -4%;
+  top: -30%;
+  width: 44%;
+  height: 170%;
+  opacity: 0.09;
+  pointer-events: none;
+}
+
+.about__aside {
+  flex: 1 1 220px;
+  padding: clamp(24px, 2.6vw, 40px) var(--pad-x);
+  border-right: 1px solid var(--wm-charcoal);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about__kicker {
+  font-size: var(--text-interface-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--wm-deep-navy);
+}
+
+.about__brandmark {
+  display: block;
+  width: 104px;
+  height: 104px;
+  margin-top: auto;
+  opacity: 0.09;
+  -webkit-mask-position: left bottom;
+  mask-position: left bottom;
+}
+
+.about__main {
+  flex: 3 1 340px;
+  padding: clamp(24px, 2.6vw, 40px) var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2vw, 26px);
+  position: relative;
+}
+
+.about__statement {
+  max-width: 30ch;
+  font-family: var(--font-plantin);
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 50px);
+  line-height: 1.12;
+  color: var(--wm-deep-navy);
+  text-wrap: pretty;
+}
+
+.about__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 72%;
+  min-width: min(100%, 420px);
+}
+
+.about__copy {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: var(--leading-body);
+  color: var(--wm-charcoal);
+  text-wrap: pretty;
+}
+
+/* SORT → WASH → SHRED → PRESS → SHAPE */
+.about__process {
+  font-family: var(--font-source-code);
+  font-size: 15px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--wm-deep-navy);
+}
+.about__process-arrow { color: var(--wm-molten-coral); }
+
+.about__spec { display: flex; flex-direction: column; }
+.about__spec span {
+  font-family: var(--font-source-code);
+  font-size: var(--text-source-data);
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  color: var(--wm-deep-navy);
+}
+
+@media (max-width: 679px) {
+  .about__aside {
+    border-right: 0;
+    border-bottom: 1px solid var(--wm-charcoal);
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  /* the 104px mark eats a third of a phone screen for a decorative element */
+  .about__brandmark { width: 64px; height: 64px; margin-top: 0; }
+  .about__watermark { width: 78%; right: -18%; opacity: 0.07; }
+}

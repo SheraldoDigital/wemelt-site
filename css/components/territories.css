@@ -1,0 +1,114 @@
+/* ==========================================================================
+   FOUR TERRITORIES — Objects / Landscapes / Projects / Community
+   Photographic cards on Charcoal, dimmed by a fixed two-layer tint so the
+   Light Grey type keeps contrast over any image.
+   Columns: 4 ≥1080px · 2 ≥620px · 1 below (design's JS breakpoints, in CSS).
+   ========================================================================== */
+
+.territories { background: var(--wm-light-grey); }
+
+.territories__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 10px var(--pad-x);
+  border-bottom: 1px solid var(--wm-charcoal);
+}
+
+.territories__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 620px) { .territories__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1080px) { .territories__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.territory {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: 340px;
+  padding: clamp(24px, 2.5vw, 40px) clamp(16px, 2vw, 32px);
+  border-right: 1px solid var(--wm-charcoal);
+  border-bottom: 1px solid var(--wm-charcoal);
+  position: relative;
+  background: var(--wm-charcoal);
+  overflow: hidden;
+}
+
+.territory__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) brightness(0.86);
+}
+
+/* Charcoal veil + navy veil, exactly as the design layers them — the default
+   treatment is unchanged.
+
+   On hover a solid charcoal is faded in behind those two gradients to lift text
+   contrast. It rides on `background-color` rather than a third gradient layer
+   because a background-image list cannot transition smoothly, whereas a colour
+   can. Painting behind the gradients is fine: all three are semi-transparent
+   charcoal/navy, so they composite to the same darkening either way.
+
+   Opacity only — no blur, no zoom, no scale, no movement, and the text and CTA
+   sit above the veil in paint order so neither is touched. */
+.territory__veil {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 35, 33, 0.22), rgba(34, 35, 33, 0.22)),
+    linear-gradient(rgba(22, 51, 111, 0.15), rgba(22, 51, 111, 0.15));
+  background-color: transparent;
+  transition: background-color 220ms ease;
+}
+
+.territory:hover .territory__veil {
+  /* 0.45 — the top of the approved 35–45% range, and the point at which the
+     worst case (Light Grey text over a light area of the photograph) clears
+     WCAG AA at 4.61:1. At 0.40 it reached only 4.20:1. */
+  background-color: rgba(34, 35, 33, 0.45);
+}
+
+.territory__index {
+  position: relative;
+  font-family: var(--font-source-code);
+  font-size: var(--text-source-data);
+  letter-spacing: var(--tracking-label);
+  color: var(--wm-light-grey);
+}
+
+.territory__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.territory__title {
+  font-size: var(--text-h3);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--wm-light-grey);
+}
+
+.territory__copy {
+  font-size: 16px;
+  font-weight: 400;   /* Regular — was Light. Size, leading, colour unchanged. */
+  line-height: var(--leading-body);
+  color: var(--wm-light-grey);
+}
+
+/* trailing rule on the last card of each row is a stray line */
+@media (min-width: 1080px) { .territory:nth-child(4n) { border-right: 0; } }
+@media (min-width: 620px) and (max-width: 1079px) { .territory:nth-child(2n) { border-right: 0; } }
+@media (max-width: 619px) {
+  .territory { border-right: 0; min-height: 280px; gap: var(--space-4); }
+}

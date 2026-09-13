@@ -1,0 +1,238 @@
+/* ==========================================================================
+   BASE — reset, document defaults, shared primitives, accessibility floor
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* keep anchored sections clear of the sticky header */
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  margin: 0;
+  background: var(--wm-light-grey);
+  color: var(--wm-charcoal);
+  font-family: var(--font-clash);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--wm-charcoal); text-decoration: none; }
+a:hover { color: var(--wm-molten-coral-ui); }
+
+img { display: block; max-width: 100%; }
+
+p, h1, h2, h3 { margin: 0; }
+
+button { font: inherit; }
+
+/* --- focus -----------------------------------------------------------------
+   The design defines hover states but no focus states. Keyboard users need a
+   visible indicator; this is additive and never shows for mouse users.
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--wm-molten-coral);
+  outline-offset: 3px;
+}
+/* on the Navy hero, Charcoal territory cards and Navy Guardians panel,
+   coral-on-dark is too low-contrast for a focus ring */
+.hero :focus-visible,
+.territory :focus-visible,
+.split__text--navy :focus-visible {
+  outline-color: var(--wm-light-grey);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--pad-x);
+  top: -100px;
+  z-index: 100;
+  padding: 10px 18px;
+  background: var(--wm-deep-navy);
+  color: var(--wm-light-grey);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  transition: top 160ms ease;
+}
+.skip-link:focus { top: 8px; color: var(--wm-light-grey); }
+
+/* ==========================================================================
+   SHARED PRIMITIVES
+   ========================================================================== */
+
+/* --- eyebrow: Source Code label, e.g. "02 / MATERIAL LANDSCAPES" ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-source-code);
+  font-size: var(--text-source-data);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--wm-ink-secondary);
+}
+.eyebrow--on-dark { color: var(--wm-cool-grey); }
+
+/* the 8px coral square that marks a numbered section */
+.eyebrow__marker {
+  display: inline-block;
+  width: 8px; height: 8px;
+  flex-shrink: 0;
+  background: var(--wm-molten-coral);
+}
+
+/* --- structural label: Clash uppercase, e.g. "FOUR TERRITORIES" ----------- */
+.label {
+  font-size: var(--text-interface-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--wm-charcoal);
+}
+
+/* --- section title: Clash, uppercase, two-line ---------------------------- */
+.section-title {
+  font-size: var(--text-h2);
+  font-weight: 500;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--wm-deep-navy);
+  text-wrap: pretty;
+}
+.section-title--on-dark { color: var(--wm-light-grey); }
+
+/* --- body copy ------------------------------------------------------------ */
+.copy {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: var(--leading-body);
+  color: var(--wm-charcoal);
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+.copy--on-dark { color: var(--wm-cool-grey); }
+
+/* --- framed CTA (hero "Explore objects", "Let's talk about it") ----------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 28px;
+  border: 1px solid var(--wm-deep-navy);
+  border-radius: var(--radius-none);
+  background: transparent;
+  color: var(--wm-deep-navy);
+  font-family: var(--font-clash);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 180ms ease, color 180ms ease;
+}
+.btn:hover { background: var(--wm-deep-navy); color: var(--wm-light-grey); }
+
+.btn--on-navy { border-color: var(--wm-light-grey); color: var(--wm-light-grey); }
+.btn--on-navy:hover { background: var(--wm-light-grey); color: var(--wm-deep-navy); }
+
+.btn--lg { min-height: 46px; padding: 0 34px; }
+
+/* --- underlined arrow link ("See objects →", "Book a workshop →") --------- */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-clash);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--wm-light-grey);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(233, 233, 232, 0.5);
+  padding-bottom: 2px;
+  transition: color 220ms ease, border-color 220ms ease, gap 220ms ease;
+}
+.arrow-link:hover {
+  color: var(--wm-molten-coral);
+  border-color: var(--wm-molten-coral);
+  gap: 12px;
+}
+
+/* --- tonal identity marks (lettermark / brandmark used as watermarks) -----
+   Approved artwork rendered through mask-image so it can take a brand colour.
+   Never typeset — always the supplied PNG.
+   -------------------------------------------------------------------------- */
+.mark {
+  background-color: var(--wm-deep-navy);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+.mark--wordmark {
+  -webkit-mask-image: url('../logos/wemelt-wordmark-black.png');
+  mask-image: url('../logos/wemelt-wordmark-black.png');
+  -webkit-mask-position: left center;
+  mask-position: left center;
+}
+.mark--brandmark {
+  -webkit-mask-image: url('../logos/wemelt-brandmark-black.png');
+  mask-image: url('../logos/wemelt-brandmark-black.png');
+}
+.mark--lettermark {
+  -webkit-mask-image: url('../logos/wemelt-lettermark-black.png');
+  mask-image: url('../logos/wemelt-lettermark-black.png');
+}
+
+/* --- media: images that fill a panel -------------------------------------- */
+.media {
+  position: relative;
+  overflow: hidden;
+  background: var(--wm-cool-grey);
+}
+.media__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* the second image sits above and fades in on hover of the panel */
+.media__img--hover {
+  opacity: 0;
+  transition: opacity 340ms ease;
+}
+.media:hover .media__img--hover { opacity: 1; }
+
+/* ==========================================================================
+   MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,18 @@
+Clash Grotesk
+Indian Type Foundry / Fontshare — Version 1.001
+
+Weights bundled here (WOFF2, official Fontshare webfont delivery):
+  ClashGrotesk-Light.woff2     wght 300
+  ClashGrotesk-Regular.woff2   wght 400
+  ClashGrotesk-Medium.woff2    wght 500
+
+Source:   https://www.fontshare.com/fonts/clash-grotesk
+Licence:  ITF Free Font License — free for personal and commercial use.
+          Full terms: https://www.fontshare.com/terms
+
+"Clash is a trademark of the Indian Type Foundry."
+
+The licence text is served as a JavaScript-rendered page and cannot be mirrored
+as plain text here; the canonical terms live at the URL above. Fontshare's terms
+permit bundling the webfont files in a website's own assets. Re-download from
+Fontshare rather than from third-party mirrors when updating.

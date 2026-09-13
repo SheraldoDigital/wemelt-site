@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Dependencies (this project has no build step and no npm dependencies)
+node_modules/
+
+# Local dev
+*.log

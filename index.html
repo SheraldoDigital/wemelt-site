@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WeMelt — Design Lab</title>
+<meta name="description" content="WeMelt is a Barcelona design lab elevating plastics beyond waste: objects for everyday rituals, material landscapes and custom editions in recycled plastic.">
+
+<!-- Open Graph. og:image and og:url MUST be absolute — most scrapers reject
+     relative paths. SITE_ORIGIN below is the only thing to change if this
+     deploys anywhere other than the production domain. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WeMelt">
+<meta property="og:url" content="https://wemelt.studio/">
+<meta property="og:title" content="WeMelt — Design Lab">
+<meta property="og:description" content="The design lab specialized in elevating plastics beyond waste. Made in Barcelona.">
+<meta property="og:image" content="https://wemelt.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="WeMelt — elevating plastics beyond waste.">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicons — the W from the approved Lettermark: scripts/make-favicons.swift
+     ICON_V busts the browser favicon cache, which is a separate store from the
+     HTTP cache and survives hard reloads. Bump it whenever the icons change or
+     the old icon will keep appearing. -->
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png?v=2">
+<link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png?v=2">
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png?v=2">
+<link rel="manifest" href="site.webmanifest?v=2">
+<meta name="theme-color" content="#16336F">
+
+<link rel="preload" href="fonts/ClashGrotesk-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ClashGrotesk-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/PlantinMTPro-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/SourceCodePro-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components/header.css">
+<link rel="stylesheet" href="css/components/hero.css">
+<link rel="stylesheet" href="css/components/about.css">
+<link rel="stylesheet" href="css/components/territories.css">
+<link rel="stylesheet" href="css/components/objects.css">
+<link rel="stylesheet" href="css/components/split-panel.css">
+<link rel="stylesheet" href="css/components/landscapes.css">
+<link rel="stylesheet" href="css/components/gram.css">
+<link rel="stylesheet" href="css/components/footer.css">
+
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===================================================================== -->
+<!-- HEADER                                                                -->
+<!-- ===================================================================== -->
+<header class="header">
+  <a class="header__wordmark mark mark--wordmark" href="#top" aria-label="WeMelt — home"></a>
+  <nav class="header__nav" aria-label="Primary">
+    <a class="header__link" href="#objects">Objects</a>
+    <a class="header__link" href="#landscapes-section">Landscapes</a>
+    <a class="header__link" href="#projects">Projects</a>
+    <a class="header__link" href="#guardians">Community</a>
+    <a class="header__brandmark mark mark--brandmark" href="#about" aria-label="About WeMelt"></a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- =================================================================== -->
+  <!-- HERO                                                                -->
+  <!-- =================================================================== -->
+  <section class="hero" id="top">
+    <div class="hero__panel">
+      <div class="hero__meta">
+        <span>WeMelt — Design Lab</span>
+        <span>Barcelona / Recycled plastic</span>
+      </div>
+      <div class="hero__body">
+        <h1 class="hero__claim">The design lab specialized in <span class="hero__claim-accent">elevating plastics beyond&nbsp;waste.</span></h1>
+        <p class="hero__lede">Objects for everyday rituals, material landscapes and custom editions. <br>Made in Barcelona.</p>
+        <div class="hero__actions">
+          <a class="btn btn--on-navy" href="#objects">Explore objects</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__media media">
+      <picture>
+          <source type="image/avif" srcset="img/hero-main-opt-900.avif 900w, img/hero-main-opt-1500.avif 1500w, img/hero-main-opt-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/hero-main-opt-1500.jpg" srcset="img/hero-main-opt-900.jpg 900w, img/hero-main-opt-1500.jpg 1500w, img/hero-main-opt-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="Sunglasses with dark round lenses resting on a mound of discarded blue face masks" class="media__img" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
+      <picture>
+          <source type="image/avif" srcset="img/hero-hover-opt-900.avif 900w, img/hero-hover-opt-1500.avif 1500w, img/hero-hover-opt-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/hero-hover-opt-1500.jpg" srcset="img/hero-hover-opt-900.jpg 900w, img/hero-hover-opt-1500.jpg 1500w, img/hero-hover-opt-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="media__img media__img--hover" loading="lazy" decoding="async">
+        </picture>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- ABOUT / PROCESS                                                     -->
+  <!-- =================================================================== -->
+  <section class="about" id="about">
+    <h2 class="visually-hidden">About WeMelt</h2>
+    <span class="about__watermark mark mark--lettermark" aria-hidden="true"></span>
+    <div class="about__aside">
+      <span class="eyebrow">About</span>
+      <span class="about__kicker">A circular design lab, <br>not a recycler</span>
+      <span class="about__brandmark mark mark--brandmark" aria-hidden="true"></span>
+    </div>
+    <div class="about__main">
+      <p class="about__statement">We transform locally recovered plastic into high-quality design objects.</p>
+      <div class="about__detail">
+        <p class="about__copy">Waste is sorted, washed, shredded, and pressed in our lab. The material is shaped through temperature, pressure, and color composition to create new design applications.</p>
+        <span class="about__process">Sort<span class="about__process-arrow" aria-hidden="true"> &rarr; </span>Wash<span class="about__process-arrow" aria-hidden="true"> &rarr; </span>Shred<span class="about__process-arrow" aria-hidden="true"> &rarr; </span>Press<span class="about__process-arrow" aria-hidden="true"> &rarr; </span>Shape</span>
+        <div class="about__spec">
+          <span>Materials / HDPE 02 · PP 05</span>
+          <span>Source / Post-consumer goods</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- FOUR TERRITORIES                                                    -->
+  <!-- =================================================================== -->
+  <section class="territories" id="landscapes">
+    <div class="territories__bar">
+      <h2 class="label">Four territories</h2>
+      <span class="eyebrow">Objects · Landscapes · Projects · Community</span>
+    </div>
+    <div class="territories__grid">
+      <article class="territory">
+        <picture>
+          <source type="image/avif" srcset="img/territory-objects-640.avif 640w, img/territory-objects-1040.avif 1040w, img/territory-objects-1440.avif 1440w" sizes="(min-width: 1080px) 25vw, (min-width: 620px) 50vw, 100vw">
+          <img src="img/territory-objects-1040.jpg" srcset="img/territory-objects-640.jpg 640w, img/territory-objects-1040.jpg 1040w, img/territory-objects-1440.jpg 1440w" sizes="(min-width: 1080px) 25vw, (min-width: 620px) 50vw, 100vw"
+               alt="" class="territory__img" loading="lazy" decoding="async">
+        </picture>
+        <span class="territory__veil" aria-hidden="true"></span>
+        <span class="territory__index">01</span>
+        <div class="territory__body">
+          <h3 class="territory__title">Objects</h3>
+          <p class="territory__copy">Table, Desk and Bathroom Rituals — the pieces we make in series.</p>
+          <a class="arrow-link" href="#objects">See objects <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="territory">
+        <picture>
+          <source type="image/avif" srcset="img/territory-landscapes-640.avif 640w, img/territory-landscapes-1040.avif 1040w, img/territory-landscapes-1440.avif 1440w" sizes="(min-width: 1080px) 25vw, (min-width: 620px) 50vw, 100vw">
+          <img src="img/territory-landscapes-1040.jpg" srcset="img/territory-landscapes-640.jpg 640w, img/territory-landscapes-1040.jpg 1040w, img/territory-landscapes-1440.jpg 1440w" sizes="(min-width: 1080px) 25vw, (min-width: 620px) 50vw, 100vw"
+               alt="" class="territory__img" loading="lazy" decoding="async">
+        </picture>
+        <span class="territory__veil" aria-hidden="true"></span>
+        <span class="territory__index">02</span>
+        <div class="territory__body">
+          <h3 class="territory__title">Landscapes</h3>
+          <p class="territory__copy">Frosted Lava, Stormy Ocean, etc — the material library.</p>
+          <a class="arrow-link" href="#landscapes-section">Explore landscapes <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="territory">
+        <picture>
+          <source type="image/avif" srcset="img/territory-projects-640.avif 640w, img/territory-projects-1040.avif 1040w, img/territory-projects-1440.avif 1440w" sizes="(min-width: 1080px) 25vw, (min-width: 620px) 50vw, 100vw">
+          <img src="img/territory-projects-1040.jpg" srcset="img/territory-projects-640.jpg 640w, img/territory-projects-1040.jpg 1040w, img/territory-projects-1440.jpg 1440w" sizes="(min-width: 1080px) 25vw, (min-width: 620px) 50vw, 100vw"
+               alt="" class="territory__img" loading="lazy" decoding="async">
+        </picture>
+        <span class="territory__veil" aria-hidden="true"></span>
+        <span class="territory__index">03</span>
+        <div class="territory__body">
+          <h3 class="territory__title">Projects</h3>
+          <p class="territory__copy">Custom Editions for brands, events and spaces.</p>
+          <a class="arrow-link" href="#projects">Explore projects <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="territory">
+        <picture>
+          <source type="image/avif" srcset="img/territory-community-640.avif 640w, img/territory-community-1040.avif 1040w, img/territory-community-1440.avif 1440w" sizes="(min-width: 1080px) 25vw, (min-width: 620px) 50vw, 100vw">
+          <img src="img/territory-community-1040.jpg" srcset="img/territory-community-640.jpg 640w, img/territory-community-1040.jpg 1040w, img/territory-community-1440.jpg 1440w" sizes="(min-width: 1080px) 25vw, (min-width: 620px) 50vw, 100vw"
+               alt="" class="territory__img" loading="lazy" decoding="async">
+        </picture>
+        <span class="territory__veil" aria-hidden="true"></span>
+        <span class="territory__index">04</span>
+        <div class="territory__body">
+          <h3 class="territory__title">Community</h3>
+          <p class="territory__copy">Plastic Guardians, workshops and collection points across the city.</p>
+          <a class="arrow-link" href="#guardians">Discover community <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- SELECTED OBJECTS                                                    -->
+  <!-- =================================================================== -->
+  <section class="objects" id="objects">
+    <div class="objects__bar">
+      <h2 class="label"><span class="eyebrow__marker" aria-hidden="true"></span>01 / Selected objects</h2>
+    </div>
+    <div class="objects__band">
+      <picture>
+          <source type="image/avif" srcset="img/objects-band-900.avif 900w, img/objects-band-1500.avif 1500w, img/objects-band-2100.avif 2100w" sizes="100vw">
+          <img src="img/objects-band-1500.jpg" srcset="img/objects-band-900.jpg 900w, img/objects-band-1500.jpg 1500w, img/objects-band-2100.jpg 2100w" sizes="100vw"
+               alt="Four recycled-plastic trays marbled in blue and orange, holding sunglasses, keys and earrings on a dark grey surface" class="objects__band-img" loading="lazy" decoding="async">
+        </picture>
+      <div class="objects__band-overlay">
+        <p class="objects__band-copy">Home goods designed around everyday rituals. From the table to the desk and bathroom, each collection explores new ways of living with recycled plastic.</p>
+      </div>
+    </div>
+    <div class="objects__grid">
+      <a class="product" href="#objects">
+        <span class="product__media">
+          <picture>
+          <source type="image/avif" srcset="img/product-coaster-set-hover-440.avif 440w, img/product-coaster-set-hover-760.avif 760w, img/product-coaster-set-hover-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-coaster-set-hover-760.jpg" srcset="img/product-coaster-set-hover-440.jpg 440w, img/product-coaster-set-hover-760.jpg 760w, img/product-coaster-set-hover-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="" class="product__img" loading="lazy" decoding="async">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/product-coaster-set-440.avif 440w, img/product-coaster-set-760.avif 760w, img/product-coaster-set-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-coaster-set-760.jpg" srcset="img/product-coaster-set-440.jpg 440w, img/product-coaster-set-760.jpg 760w, img/product-coaster-set-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="Coaster Set in recycled plastic" class="product__img product__img--base" loading="lazy" decoding="async">
+        </picture>
+        </span>
+        <span class="product__info">
+          <span class="product__name">Coaster Set</span>
+          <span class="product__gram">
+            <span class="product__gram-label">Recycled plastic</span>
+            <span class="product__gram-value">154g</span>
+          </span>
+        </span>
+      </a>
+      <a class="product" href="#objects">
+        <span class="product__media">
+          <picture>
+          <source type="image/avif" srcset="img/product-tray-02-hover-440.avif 440w, img/product-tray-02-hover-760.avif 760w, img/product-tray-02-hover-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-tray-02-hover-760.jpg" srcset="img/product-tray-02-hover-440.jpg 440w, img/product-tray-02-hover-760.jpg 760w, img/product-tray-02-hover-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="" class="product__img" loading="lazy" decoding="async">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/product-tray-02-440.avif 440w, img/product-tray-02-760.avif 760w, img/product-tray-02-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-tray-02-760.jpg" srcset="img/product-tray-02-440.jpg 440w, img/product-tray-02-760.jpg 760w, img/product-tray-02-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="Tray 02 in recycled plastic" class="product__img product__img--base" loading="lazy" decoding="async">
+        </picture>
+        </span>
+        <span class="product__info">
+          <span class="product__name">Tray 02</span>
+          <span class="product__gram">
+            <span class="product__gram-label">Recycled plastic</span>
+            <span class="product__gram-value">110g</span>
+          </span>
+        </span>
+      </a>
+      <a class="product" href="#objects">
+        <span class="product__media">
+          <picture>
+          <source type="image/avif" srcset="img/product-post-it-hover-440.avif 440w, img/product-post-it-hover-760.avif 760w, img/product-post-it-hover-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-post-it-hover-760.jpg" srcset="img/product-post-it-hover-440.jpg 440w, img/product-post-it-hover-760.jpg 760w, img/product-post-it-hover-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="" class="product__img" loading="lazy" decoding="async">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/product-post-it-440.avif 440w, img/product-post-it-760.avif 760w, img/product-post-it-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-post-it-760.jpg" srcset="img/product-post-it-440.jpg 440w, img/product-post-it-760.jpg 760w, img/product-post-it-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="Post-it Case in recycled plastic" class="product__img product__img--base" loading="lazy" decoding="async">
+        </picture>
+        </span>
+        <span class="product__info">
+          <span class="product__name">Post-it Case</span>
+          <span class="product__gram">
+            <span class="product__gram-label">Recycled plastic</span>
+            <span class="product__gram-value">126g</span>
+          </span>
+        </span>
+      </a>
+      <a class="product" href="#objects">
+        <span class="product__media">
+          <picture>
+          <source type="image/avif" srcset="img/product-incense-hover-v2-440.avif 440w, img/product-incense-hover-v2-760.avif 760w, img/product-incense-hover-v2-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-incense-hover-v2-760.jpg" srcset="img/product-incense-hover-v2-440.jpg 440w, img/product-incense-hover-v2-760.jpg 760w, img/product-incense-hover-v2-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="" class="product__img" loading="lazy" decoding="async">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/product-incense-440.avif 440w, img/product-incense-760.avif 760w, img/product-incense-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-incense-760.jpg" srcset="img/product-incense-440.jpg 440w, img/product-incense-760.jpg 760w, img/product-incense-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="Incense Holder in recycled plastic" class="product__img product__img--base" loading="lazy" decoding="async">
+        </picture>
+        </span>
+        <span class="product__info">
+          <span class="product__name">Incense Holder</span>
+          <span class="product__gram">
+            <span class="product__gram-label">Recycled plastic</span>
+            <span class="product__gram-value">139g</span>
+          </span>
+        </span>
+      </a>
+      <a class="product" href="#objects">
+        <span class="product__media">
+          <picture>
+          <source type="image/avif" srcset="img/product-05-hover-440.avif 440w, img/product-05-hover-760.avif 760w, img/product-05-hover-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-05-hover-760.jpg" srcset="img/product-05-hover-440.jpg 440w, img/product-05-hover-760.jpg 760w, img/product-05-hover-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="" class="product__img" loading="lazy" decoding="async">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/product-05-440.avif 440w, img/product-05-760.avif 760w, img/product-05-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-05-760.jpg" srcset="img/product-05-440.jpg 440w, img/product-05-760.jpg 760w, img/product-05-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="Incense Pack in recycled plastic" class="product__img product__img--base" loading="lazy" decoding="async">
+        </picture>
+        </span>
+        <span class="product__info">
+          <span class="product__name">Incense Pack</span>
+          <span class="product__gram">
+            <span class="product__gram-label">Recycled plastic</span>
+            <span class="product__gram-value">278g</span>
+          </span>
+        </span>
+      </a>
+      <a class="product" href="#objects">
+        <span class="product__media">
+          <picture>
+          <source type="image/avif" srcset="img/product-06-hover-440.avif 440w, img/product-06-hover-760.avif 760w, img/product-06-hover-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-06-hover-760.jpg" srcset="img/product-06-hover-440.jpg 440w, img/product-06-hover-760.jpg 760w, img/product-06-hover-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="" class="product__img" loading="lazy" decoding="async">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/product-06-440.avif 440w, img/product-06-760.avif 760w, img/product-06-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-06-760.jpg" srcset="img/product-06-440.jpg 440w, img/product-06-760.jpg 760w, img/product-06-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="Napkins Holder in recycled plastic" class="product__img product__img--base" loading="lazy" decoding="async">
+        </picture>
+        </span>
+        <span class="product__info">
+          <span class="product__name">Napkins Holder</span>
+          <span class="product__gram">
+            <span class="product__gram-label">Recycled plastic</span>
+            <span class="product__gram-value">433g</span>
+          </span>
+        </span>
+      </a>
+      <a class="product" href="#objects">
+        <span class="product__media">
+          <picture>
+          <source type="image/avif" srcset="img/product-07-hover-440.avif 440w, img/product-07-hover-760.avif 760w, img/product-07-hover-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-07-hover-760.jpg" srcset="img/product-07-hover-440.jpg 440w, img/product-07-hover-760.jpg 760w, img/product-07-hover-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="" class="product__img" loading="lazy" decoding="async">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/product-07-v2-440.avif 440w, img/product-07-v2-760.avif 760w, img/product-07-v2-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-07-v2-760.jpg" srcset="img/product-07-v2-440.jpg 440w, img/product-07-v2-760.jpg 760w, img/product-07-v2-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="Soap Dish in recycled plastic" class="product__img product__img--base" loading="lazy" decoding="async">
+        </picture>
+        </span>
+        <span class="product__info">
+          <span class="product__name">Soap Dish</span>
+          <span class="product__gram">
+            <span class="product__gram-label">Recycled plastic</span>
+            <span class="product__gram-value">74g</span>
+          </span>
+        </span>
+      </a>
+      <a class="product" href="#objects">
+        <span class="product__media">
+          <picture>
+          <source type="image/avif" srcset="img/product-08-hover-440.avif 440w, img/product-08-hover-760.avif 760w, img/product-08-hover-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-08-hover-760.jpg" srcset="img/product-08-hover-440.jpg 440w, img/product-08-hover-760.jpg 760w, img/product-08-hover-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="" class="product__img" loading="lazy" decoding="async">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/product-08-440.avif 440w, img/product-08-760.avif 760w, img/product-08-1120.avif 1120w" sizes="(min-width: 620px) 25vw, 50vw">
+          <img src="img/product-08-760.jpg" srcset="img/product-08-440.jpg 440w, img/product-08-760.jpg 760w, img/product-08-1120.jpg 1120w" sizes="(min-width: 620px) 25vw, 50vw"
+               alt="Tray Set in recycled plastic" class="product__img product__img--base" loading="lazy" decoding="async">
+        </picture>
+        </span>
+        <span class="product__info">
+          <span class="product__name">Tray Set</span>
+          <span class="product__gram">
+            <span class="product__gram-label">Recycled plastic</span>
+            <span class="product__gram-value">363g</span>
+          </span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- MATERIAL LANDSCAPES                                                 -->
+  <!-- =================================================================== -->
+  <section class="split split--text-first" id="landscapes-section">
+    <div class="split__text">
+      <span class="eyebrow"><span class="eyebrow__marker" aria-hidden="true"></span>02 / Material landscapes</span>
+      <h2 class="section-title split__title">material <br>landscapes</h2>
+      <p class="copy">A material library where colour, texture and process become landscapes — translating nature into our creative material language.</p>
+      <div class="split__actions">
+        <span class="landscapes__explore">Explore landscapes</span>
+        <div class="landscapes__nav">
+          <button class="landscapes__step" type="button" data-landscape-prev aria-label="Previous landscape">&larr;</button>
+          <button class="landscapes__step" type="button" data-landscape-next aria-label="Next landscape">&rarr;</button>
+        </div>
+      </div>
+      <p class="visually-hidden" role="status" aria-live="polite" data-landscape-live></p>
+    </div>
+    <div class="split__media landscapes__stage" data-landscape-stage>
+          <picture>
+          <source type="image/avif" srcset="img/material-landscapes-900.avif 900w, img/material-landscapes-1500.avif 1500w, img/material-landscapes-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/material-landscapes-1500.jpg" srcset="img/material-landscapes-900.jpg 900w, img/material-landscapes-1500.jpg 1500w, img/material-landscapes-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="landscapes__slide" loading="eager" fetchpriority="high" decoding="async" data-landscape-slide data-name="Frosted Lava" data-composition="" data-active>
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/ls-01-900.avif 900w, img/ls-01-1500.avif 1500w, img/ls-01-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/ls-01-1500.jpg" srcset="img/ls-01-900.jpg 900w, img/ls-01-1500.jpg 1500w, img/ls-01-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="landscapes__slide" loading="lazy" decoding="async" data-landscape-slide data-name="Frosted Lava" data-composition="Light Blue 60% · White 30% · Brown 6% · Orange 4%">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/ls-02-900.avif 900w, img/ls-02-1500.avif 1500w, img/ls-02-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/ls-02-1500.jpg" srcset="img/ls-02-900.jpg 900w, img/ls-02-1500.jpg 1500w, img/ls-02-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="landscapes__slide" loading="lazy" decoding="async" data-landscape-slide data-name="Marble Snow" data-composition="Black 40% · White 60%">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/ls-03-900.avif 900w, img/ls-03-1500.avif 1500w, img/ls-03-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/ls-03-1500.jpg" srcset="img/ls-03-900.jpg 900w, img/ls-03-1500.jpg 1500w, img/ls-03-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="landscapes__slide" loading="lazy" decoding="async" data-landscape-slide data-name="Stormy Ocean" data-composition="Navy Blue 80% · Blue 15% · White 5%">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/ls-04-900.avif 900w, img/ls-04-1500.avif 1500w, img/ls-04-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/ls-04-1500.jpg" srcset="img/ls-04-900.jpg 900w, img/ls-04-1500.jpg 1500w, img/ls-04-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="landscapes__slide" loading="lazy" decoding="async" data-landscape-slide data-name="Wild Sunset" data-composition="White 65% · Orange 20% · Red 10% · Purple 5%">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/ls-07-900.avif 900w, img/ls-07-1500.avif 1500w, img/ls-07-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/ls-07-1500.jpg" srcset="img/ls-07-900.jpg 900w, img/ls-07-1500.jpg 1500w, img/ls-07-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="landscapes__slide" loading="lazy" decoding="async" data-landscape-slide data-name="Low-Tide Reef" data-composition="Light Blue 85% · White 5% · Black 5% · Brown 5%">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/ls-08-900.avif 900w, img/ls-08-1500.avif 1500w, img/ls-08-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/ls-08-1500.jpg" srcset="img/ls-08-900.jpg 900w, img/ls-08-1500.jpg 1500w, img/ls-08-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="landscapes__slide" loading="lazy" decoding="async" data-landscape-slide data-name="Deep Forest" data-composition="Dark Green 65% · Green 25% · White 10%">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/ls-09-900.avif 900w, img/ls-09-1500.avif 1500w, img/ls-09-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/ls-09-1500.jpg" srcset="img/ls-09-900.jpg 900w, img/ls-09-1500.jpg 1500w, img/ls-09-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="landscapes__slide" loading="lazy" decoding="async" data-landscape-slide data-name="Solar Storm" data-composition="Semi-Transparent 70% · Purple 20% · Yellow 10%">
+        </picture>
+          <picture>
+          <source type="image/avif" srcset="img/ls-10-900.avif 900w, img/ls-10-1500.avif 1500w, img/ls-10-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/ls-10-1500.jpg" srcset="img/ls-10-900.jpg 900w, img/ls-10-1500.jpg 1500w, img/ls-10-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="landscapes__slide" loading="lazy" decoding="async" data-landscape-slide data-name="Glassy Lake" data-composition="Semi-Transparent 85% · White 10% · Light Blue 3% · Beige 2%">
+        </picture>
+      <div class="landscapes__overlay">
+        <div class="landscapes__name-wrap">
+          <span class="landscapes__name" data-landscape-name>Frosted Lava</span>
+        </div>
+        <div class="landscapes__meta" data-landscape-meta hidden>
+          <span data-landscape-comp></span>
+          <span>Recycled HDPE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- CUSTOM EDITIONS                                                     -->
+  <!-- =================================================================== -->
+  <section class="split split--media-first" id="projects">
+    <div class="split__media media">
+      <picture>
+          <source type="image/avif" srcset="img/custom-edition-v3-900.avif 900w, img/custom-edition-v3-1500.avif 1500w, img/custom-edition-v3-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/custom-edition-v3-1500.jpg" srcset="img/custom-edition-v3-900.jpg 900w, img/custom-edition-v3-1500.jpg 1500w, img/custom-edition-v3-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="Flower-shaped recycled-plastic coasters mottled in blue, red and white, each embossed with a brand name" class="media__img" loading="lazy" decoding="async">
+        </picture>
+      <picture>
+          <source type="image/avif" srcset="img/custom-editions-hover-900.avif 900w, img/custom-editions-hover-1500.avif 1500w, img/custom-editions-hover-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/custom-editions-hover-1500.jpg" srcset="img/custom-editions-hover-900.jpg 900w, img/custom-editions-hover-1500.jpg 1500w, img/custom-editions-hover-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="media__img media__img--hover" loading="lazy" decoding="async">
+        </picture>
+    </div>
+    <div class="split__text">
+      <span class="eyebrow"><span class="eyebrow__marker" aria-hidden="true"></span>03 / Projects</span>
+      <h2 class="section-title split__title">custom <br>editions</h2>
+      <p class="copy">For brands, events and spaces looking to explore new materials through design. <br>We develop custom objects and editions in recycled plastic, creating pieces with their own material identity.</p>
+      <div class="split__cta-group">
+        <span class="split__cta-lead">Have something in mind?</span>
+        <a class="btn btn--lg" href="mailto:wemelt.studio@gmail.com?subject=Custom%20Edition%20enquiry">Let’s talk about it <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- PLASTIC GUARDIANS                                                   -->
+  <!-- =================================================================== -->
+  <section class="split split--text-first" id="guardians">
+    <div class="split__text split__text--navy">
+      <span class="eyebrow eyebrow--on-dark"><span class="eyebrow__marker" aria-hidden="true"></span>04 / Community</span>
+      <h2 class="section-title split__title">Plastic Guardians</h2>
+      <p class="copy copy--on-dark">Workshops and community actions that bring people closer to recycled plastic through design, material experimentation and hands-on making.</p>
+      <div class="split__actions">
+        <a class="arrow-link" href="mailto:wemelt.studio@gmail.com?subject=Workshop%20enquiry">Book a workshop <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="split__media media">
+      <picture>
+          <source type="image/avif" srcset="img/plastic-guardians-v2-900.avif 900w, img/plastic-guardians-v2-1500.avif 1500w, img/plastic-guardians-v2-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/plastic-guardians-v2-1500.jpg" srcset="img/plastic-guardians-v2-900.jpg 900w, img/plastic-guardians-v2-1500.jpg 1500w, img/plastic-guardians-v2-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="Two people passing a glass jar of blue and white shredded plastic flakes between them" class="media__img" loading="lazy" decoding="async">
+        </picture>
+      <picture>
+          <source type="image/avif" srcset="img/plastic-guardians-hover-900.avif 900w, img/plastic-guardians-hover-1500.avif 1500w, img/plastic-guardians-hover-2100.avif 2100w" sizes="(max-width: 679px) 100vw, 50vw">
+          <img src="img/plastic-guardians-hover-1500.jpg" srcset="img/plastic-guardians-hover-900.jpg 900w, img/plastic-guardians-hover-1500.jpg 1500w, img/plastic-guardians-hover-2100.jpg 2100w" sizes="(max-width: 679px) 100vw, 50vw"
+               alt="" class="media__img media__img--hover" loading="lazy" decoding="async">
+        </picture>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- GRAM SYSTEM                                                         -->
+  <!-- =================================================================== -->
+  <section class="gram" id="gram-system">
+    <h2 class="visually-hidden">Gram system</h2>
+    <div class="gram__grid">
+      <div class="gram__seal">
+        <span class="gram__mark mark mark--brandmark" aria-hidden="true"></span>
+        <span class="gram__value">490.839g</span>
+        <span class="gram__caption">Plastic protected to date.</span>
+      </div>
+      <dl class="gram__stats">
+        <div class="gram__stat"><dt>Objects produced</dt><dd>43</dd></div>
+        <div class="gram__stat"><dt>Collection points</dt><dd>02</dd></div>
+        <div class="gram__stat"><dt>Community actions</dt><dd>03</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- BRAND CLOSING                                                       -->
+  <!-- =================================================================== -->
+  <section class="community" id="community">
+    <p class="community__statement">Protect plastic. Create landscapes.</p>
+  </section>
+
+</main>
+
+<!-- ===================================================================== -->
+<!-- FOOTER                                                                -->
+<!-- ===================================================================== -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__col">
+      <a class="footer__wordmark mark mark--wordmark" href="#top" aria-label="WeMelt — back to top"></a>
+      <span class="footer__place">Design Lab / Barcelona</span>
+    </div>
+    <div class="footer__col">
+      <span class="footer__heading">Info</span>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#guardians">Community</a>
+    </div>
+    <div class="footer__col">
+      <span class="footer__heading">Contact</span>
+      <a href="mailto:wemelt.studio@gmail.com">wemelt.studio@gmail.com</a>
+    </div>
+    <div class="footer__col">
+      <span class="footer__heading">Follow</span>
+      <a href="https://www.instagram.com/wemelt.lab/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="footer__legal">
+    <span>© WeMelt Studio 2026</span>
+    <!-- Privacy / Terms intentionally absent until the legal pages exist.
+         Re-add here as real links (not "#") when they do. -->
+  </div>
+</footer>
+
+</body>
+</html>

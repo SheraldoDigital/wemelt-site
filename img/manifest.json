@@ -1,0 +1,290 @@
+{
+ "hero-main-opt": {
+  "role": "hero",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "hero-hover-opt": {
+  "role": "hero",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "material-landscapes": {
+  "role": "landscape",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "ls-01": {
+  "role": "landscape",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "ls-02": {
+  "role": "landscape",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "ls-03": {
+  "role": "landscape",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "ls-04": {
+  "role": "landscape",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "ls-07": {
+  "role": "landscape",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "ls-08": {
+  "role": "landscape",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "ls-09": {
+  "role": "landscape",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "ls-10": {
+  "role": "landscape",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "custom-edition-v3": {
+  "role": "editorial",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "custom-editions-hover": {
+  "role": "editorial",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "plastic-guardians-v2": {
+  "role": "editorial",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "plastic-guardians-hover": {
+  "role": "editorial",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "objects-band": {
+  "role": "editorial",
+  "widths": [
+   900,
+   1500,
+   2100
+  ]
+ },
+ "territory-objects": {
+  "role": "territory",
+  "widths": [
+   640,
+   1040,
+   1440
+  ]
+ },
+ "territory-landscapes": {
+  "role": "territory",
+  "widths": [
+   640,
+   1040,
+   1440
+  ]
+ },
+ "territory-projects": {
+  "role": "territory",
+  "widths": [
+   640,
+   1040,
+   1440
+  ]
+ },
+ "territory-community": {
+  "role": "territory",
+  "widths": [
+   640,
+   1040,
+   1440
+  ]
+ },
+ "product-coaster-set": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-coaster-set-hover": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-tray-02": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-tray-02-hover": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-post-it": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-post-it-hover": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-incense": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-incense-hover-v2": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-05": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-05-hover": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-06": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-06-hover": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-07-v2": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-07-hover": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-08": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ },
+ "product-08-hover": {
+  "role": "product",
+  "widths": [
+   440,
+   760,
+   1120
+  ]
+ }
+}

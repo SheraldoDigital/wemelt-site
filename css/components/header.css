@@ -1,0 +1,72 @@
+/* ==========================================================================
+   HEADER — sticky, Light Grey, Navy wordmark
+   Hover: both identity marks shift Navy → Coral together (design: markColor
+   state driven by header mouseenter/leave; here a plain :hover on the header).
+   ========================================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 14px var(--pad-x);
+  background: var(--wm-light-grey);
+  border-bottom: 1px solid var(--wm-charcoal);
+}
+
+.header__wordmark {
+  display: block;
+  height: 26px;
+  width: 113px;
+  margin: -2px 0;
+  flex-shrink: 0;
+  transition: background-color 250ms ease;
+}
+
+.header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  line-height: 1;
+  font-size: var(--text-nav-cta);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.header__link {
+  color: var(--wm-charcoal);
+  transition: color 250ms ease;
+}
+.header__link:hover { color: var(--wm-molten-coral); }
+
+.header__brandmark {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin: -10px 0;
+  flex-shrink: 0;
+  transition: background-color 250ms ease;
+}
+
+/* both marks respond to hovering anywhere on the header */
+.header:hover .header__wordmark,
+.header:hover .header__brandmark {
+  background-color: var(--wm-molten-coral);
+}
+
+/* Mobile: the four nav items would crowd the wordmark, so the label row wraps
+   to its own line under the marks rather than shrinking below tap size. */
+@media (max-width: 560px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    padding: 12px var(--pad-x);
+  }
+  .header__nav { width: 100%; gap: 18px; justify-content: space-between; }
+  .header__brandmark { display: none; }
+}

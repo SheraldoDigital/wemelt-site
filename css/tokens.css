@@ -1,0 +1,200 @@
+/* ==========================================================================
+   WEMELT — DESIGN TOKENS
+   Transcribed from the Claude Design system:
+     _ds/wemelt-design-system-49f09480…/tokens/{colors,typography,spacing,fonts}.css
+   Values are unchanged. The one addition is --wm-molten-coral, which the design
+   file used as a raw hex (#F05A3C) in 38 places; it is tokenised here so the
+   expressive brand colour lives in one place.
+   ========================================================================== */
+
+/* --- Faces ---------------------------------------------------------------
+   Only the weights the page actually uses are declared. Clash Semibold,
+   Plantin Semibold and Source Code Semibold ship in the design system but are
+   never referenced by this layout, so they are not loaded.
+   ------------------------------------------------------------------------- */
+
+/* Martian Grotesk — signature / impact / metrics.
+   Variable font, two axes: wght 100–1000, wdth 75–200.
+   Open source (SIL OFL 1.1) — see fonts/MartianGrotesk-OFL.txt.
+   github.com/evilmartians/grotesk
+   Replaces ABC Gravity, whose only supplied file was an unlicensed trial. */
+@font-face {
+  font-family: 'Martian Grotesk';
+  src: url('../fonts/MartianGrotesk-Variable.woff2') format('woff2');
+  font-weight: 100 1000;
+  font-stretch: 75% 200%;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Clash Grotesk — structure / interface. THE PRIMARY TYPEFACE: if no other
+   role is specifically required, this is the face.
+   Indian Type Foundry v1.001, official Fontshare webfont delivery, ITF Free
+   Font License (commercial use permitted) — see fonts/ClashGrotesk-LICENSE.txt.
+   Light 300 · Regular 400 · Medium 500 — the three weights this page uses.
+   Not Clash Display, which is a different typeface. */
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('../fonts/ClashGrotesk-Light.woff2') format('woff2');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('../fonts/ClashGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('../fonts/ClashGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+
+/* Plantin MT Pro Roman — story / editorial.
+   Licensed Monotype webfont kit (PlantinMTPro-Regular, CFF). Roman only —
+   Semibold is supplied in the brand assets but nothing on this page sets it.
+   woff2 first; woff covers pre-2016 Safari/Edge. */
+@font-face {
+  font-family: 'Plantin MT Pro';
+  src: url('../fonts/PlantinMTPro-Regular.woff2') format('woff2'),
+       url('../fonts/PlantinMTPro-Regular.woff') format('woff');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+/* Source Code Pro — process / lab / information.
+   Official Adobe release 2.042 (adobe-fonts/source-code-pro), SIL OFL 1.1 —
+   licence in fonts/SourceCodePro-OFL.txt. Regular only: this page sets no other
+   weight. 1335 codepoints, double the 2012 build it replaces.
+
+   The brand docs call for "Source Code Variable". When Product Pages need Medium
+   or Semibold, swap in WOFF2/VF/SourceCodeVF-Upright.otf.woff2 (87 KB, wght
+   200–900) and declare `font-weight: 200 900`. Note its family is SourceCodeVF
+   and its DEFAULT instance is 200 (ExtraLight), so every rule must state a
+   weight — the brand system forbids light weights at small sizes. */
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('../fonts/SourceCodePro-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* --- base palette --------------------------------------------------- */
+  --wm-light-grey: #E9E9E8;
+  --wm-cool-grey: #C2CDD6;
+  --wm-charcoal: #222321;
+  --wm-medium-grey: #6D7481;
+  --wm-deep-navy: #16336F;
+  /* Profile A (Formal) — the active colour profile. The Claude Design system was
+     built on Profile B (Distinctive), whose only differing value was Molten Coral
+     at #F05A3C; the client has confirmed Profile A, so #FE492A is authoritative.
+     Every other value is identical across both profiles. Contrast is unchanged
+     by the swap (2.79:1 vs 2.77:1 on Light Grey). */
+  --wm-molten-coral: #FE492A;
+  --wm-molten-coral-ui: #C13720;
+
+  /* Gram coral — Profile B's Molten Coral, kept deliberately for the Gram
+     System's metric typography (client decision). Everything else on the page
+     uses the Profile A coral above. The two are near-identical in contrast
+     (2.77:1 vs 2.79:1 on Light Grey), so this is a brand distinction rather
+     than an accessibility one:
+       #FE492A  interaction + accent — hovers, section markers, process arrows
+       #F05A3C  gram metrics        — 490.839g and the product card gram rows  */
+  --wm-gram-coral: #F05A3C;
+  --wm-acid-lime: #C5F95E;
+  --wm-white: #FFFFFF;
+
+  /* --- semantic tokens ------------------------------------------------ */
+  --wm-canvas: var(--wm-light-grey);
+  --wm-surface-secondary: var(--wm-cool-grey);
+  --wm-surface-dark: var(--wm-charcoal);
+  --wm-on-dark: var(--wm-light-grey);
+  --wm-ink: var(--wm-charcoal);
+  --wm-ink-secondary: var(--wm-medium-grey);
+  --wm-border: var(--wm-charcoal);
+
+  --wm-brand-formal: var(--wm-deep-navy);
+  --wm-brand-expressive: var(--wm-molten-coral);
+  --wm-brand-expressive-ui: var(--wm-molten-coral-ui);
+  --wm-accent-experimental: var(--wm-acid-lime);
+
+  --wm-gram-metric: var(--wm-gram-coral);
+  --wm-gram-neutral: var(--wm-medium-grey);
+  --wm-gram-tonal-light: var(--wm-light-grey);
+  --wm-gram-tonal-secondary: var(--wm-cool-grey);
+
+  --wm-status-error: var(--wm-molten-coral-ui);
+
+  /* --- families -------------------------------------------------------- */
+  --font-metric: 'Martian Grotesk', 'Clash Grotesk', sans-serif;
+  --font-plantin: 'Plantin MT Pro', Georgia, serif;
+  --font-clash: 'Clash Grotesk', Arial, sans-serif;
+  --font-source-code: 'Source Code Pro', ui-monospace, monospace;
+
+  /* --- metric / impact style ---------------------------------------------
+     Expanded Black — wght 900 at wdth 125%, which is the Expanded master
+     exactly (measured against MartianGroteskExpanded-Black: 672px vs 673px at
+     100px, synthesis off). This is the approved direction for Gram
+     Visualization and large impact metrics.
+
+     It is the wider of the two candidates (6.484px of width per 1px of size),
+     so it needs the 620–899px step-down in gram.css to clear the seal panel —
+     keep the two together.
+
+     SemiCondensed Ultra (1000 / 87.5%) is the alternative: 18% narrower, holds
+     the base clamp with no step-down. Swap these two values to switch.
+
+     Adjust these four values for optical tuning — they keep the heavy expanded
+     character rather than changing typographic direction. Nothing else on the
+     page uses this family.
+     ---------------------------------------------------------------------- */
+  --metric-weight: 900;
+  --metric-width: 125%;
+  --metric-tracking: -0.03em;
+  --metric-leading: 0.9;
+
+  /* --- display scale --------------------------------------------------- */
+  --text-metric-display: clamp(72px, 11vw, 190px);
+  --text-plantin-display: clamp(52px, 7vw, 120px);
+  --text-clash-display: clamp(48px, 6vw, 96px);
+
+  /* --- general content scale ------------------------------------------- */
+  --text-h1: clamp(32px, 5vw, 64px);
+  --text-h2: clamp(24px, 3.5vw, 44px);
+  --text-h3: clamp(18px, 2vw, 26px);
+  --text-body: 16px;
+
+  /* --- product / commerce scale ---------------------------------------- */
+  --text-product-name: 19px;
+  --text-price: 15px;
+  --text-interface-label: 12px;
+  --text-nav-cta: 12px;
+  --text-source-info: 15px;
+  --text-source-data: 12px;
+
+  --tracking-label: 0.06em;
+  --leading-metric: 0.88;
+  --leading-plantin: 1.02;
+  --leading-clash: 0.98;
+  --leading-body: 1.5;
+
+  /* --- spacing: modular 1 · 2 · 4 · 8 ---------------------------------- */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-4: 32px;
+  --space-8: 64px;
+  --space-16: 128px;
+
+  --border-width: 1px;
+  --radius-none: 0px;   /* WeMelt uses squared geometry by default */
+  --radius-sm: 2px;     /* reserved for rare small controls only */
+
+  --container-max: 1440px;
+  --gutter: var(--space-2);
+
+  /* --- page rhythm ------------------------------------------------------
+     The design file repeats these two clamps on almost every section; naming
+     them keeps the horizontal rhythm consistent and editable in one place.
+     ---------------------------------------------------------------------- */
+  --pad-x: clamp(16px, 3vw, 48px);
+  --pad-y: clamp(32px, 4vw, 64px);
+  --header-h: 52px;
+}

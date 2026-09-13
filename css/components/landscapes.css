@@ -1,0 +1,122 @@
+/* ==========================================================================
+   MATERIAL LANDSCAPES — crossfading material library
+   Nine frames stacked; only the active one is opaque. Prev/next step through
+   with wraparound. Name and composition update with the frame.
+   ========================================================================== */
+
+.landscapes__nav { display: flex; gap: var(--space-1); }
+
+.landscapes__step {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--wm-deep-navy);
+  border-radius: var(--radius-none);
+  background: transparent;
+  color: var(--wm-deep-navy);
+  font-family: var(--font-clash);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+.landscapes__step:hover {
+  background: var(--wm-cool-grey);
+  color: var(--wm-molten-coral);
+}
+
+.landscapes__explore {
+  font-family: var(--font-clash);
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--wm-deep-navy);
+}
+
+.landscapes__stage {
+  position: relative;
+  background: var(--wm-cool-grey);
+  overflow: hidden;
+}
+
+.landscapes__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+.landscapes__slide[data-active] { opacity: 1; }
+
+/* --- hover reveal --------------------------------------------------------
+   Hovering the stage dims the frame and names the Landscape: Plantin title
+   centred, composition + material beneath it in Source Code.
+   ------------------------------------------------------------------------- */
+.landscapes__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 35, 33, 0.52);
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+.landscapes__stage:hover .landscapes__overlay { opacity: 1; }
+
+.landscapes__name-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 clamp(16px, 4vw, 48px);
+}
+
+.landscapes__name {
+  font-family: var(--font-plantin);
+  font-size: clamp(32px, 3.4vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  color: var(--wm-light-grey);
+  text-align: center;
+}
+
+.landscapes__meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(25% - 34px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0 clamp(16px, 4vw, 48px);
+}
+.landscapes__meta span {
+  font-family: var(--font-source-code);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--wm-light-grey);
+  text-align: center;
+  text-wrap: pretty;
+}
+/* slide 0 carries no composition */
+.landscapes__meta[hidden] { display: none; }
+
+/* Touch has no hover, so the Landscape would never be named. Show the
+   overlay permanently and shrink the title to sit comfortably. */
+@media (hover: none) {
+  .landscapes__overlay { opacity: 1; background: rgba(34, 35, 33, 0.42); }
+  .landscapes__name { font-size: clamp(28px, 8vw, 40px); }
+}

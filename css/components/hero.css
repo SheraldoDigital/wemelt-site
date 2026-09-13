@@ -1,0 +1,71 @@
+/* ==========================================================================
+   HERO — Deep Navy text panel + product photograph
+   Hovering the text panel warms the second half of the claim to Coral.
+   Hovering the image crossfades to the second frame.
+   ========================================================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  background: var(--wm-deep-navy);
+  border-bottom: 1px solid var(--wm-charcoal);
+}
+
+.hero__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(48px, 7vw, 96px);
+  padding: var(--pad-y) var(--pad-x);
+  border-right: 1px solid var(--wm-cool-grey);
+  min-height: min(84vh, 760px);
+}
+
+.hero__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-family: var(--font-source-code);
+  font-size: var(--text-source-data);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--wm-cool-grey);
+}
+
+.hero__body { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 40px); }
+
+.hero__claim {
+  font-family: var(--font-plantin);
+  font-weight: 400;
+  font-size: clamp(40px, 5.6vw, 104px);
+  line-height: var(--leading-plantin);
+  color: var(--wm-cool-grey);
+  text-wrap: pretty;
+}
+
+.hero__claim-accent { color: var(--wm-cool-grey); transition: color 280ms ease; }
+.hero__panel:hover .hero__claim-accent { color: var(--wm-molten-coral); }
+
+.hero__lede {
+  max-width: 46ch;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: var(--leading-body);
+  color: var(--wm-gram-tonal-light);
+}
+
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+
+.hero__media { min-height: min(84vh, 760px); }
+
+/* Single column: the panel's right border becomes a stray rule, and two
+   84vh blocks stacked make the fold nearly two screens deep. Cap the image. */
+@media (max-width: 679px) {
+  .hero__panel {
+    border-right: 0;
+    border-bottom: 1px solid var(--wm-cool-grey);
+    min-height: 0;
+    gap: var(--space-8);
+  }
+  .hero__media { min-height: 56vh; }
+}

@@ -1,0 +1,213 @@
+/* ==========================================================================
+   SELECTED OBJECTS — editorial band + product grid
+   Cards are previews only: they anchor back to this section, not to a PDP.
+   Hover swaps the photograph and swaps the name for its gram data.
+   Columns: 4 ≥620px · 2 below.
+   ========================================================================== */
+
+.objects { background: var(--wm-light-grey); }
+
+.objects__bar {
+  padding: 10px var(--pad-x);
+  border-bottom: 1px solid var(--wm-charcoal);
+}
+.objects__bar .label { display: inline-flex; align-items: center; gap: 10px; }
+
+/* --- wide editorial band ------------------------------------------------- */
+.objects__band {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 24 / 9;
+  min-height: 280px;
+  border-bottom: 1px solid var(--wm-charcoal);
+  overflow: hidden;
+  background: var(--wm-cool-grey);
+}
+.objects__band-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center calc(50% - 28px);
+}
+.objects__band-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(24px, 4vw, 56px);
+  background: rgba(34, 35, 33, 0.38);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.objects__band:hover .objects__band-overlay { opacity: 1; }
+.objects__band-copy {
+  max-width: 46ch;
+  font-family: var(--font-clash);
+  font-size: clamp(15px, 1.3vw, 19px);
+  font-weight: 300;
+  line-height: var(--leading-body);
+  color: var(--wm-light-grey);
+  text-wrap: pretty;
+}
+/* below 820px there is no hover, so the copy is shown permanently */
+@media (max-width: 819px) {
+  .objects__band-overlay { opacity: 1; }
+}
+
+/* --- product grid --------------------------------------------------------- */
+.objects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 620px) { .objects__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-right: 1px solid var(--wm-charcoal);
+  border-bottom: 1px solid var(--wm-charcoal);
+  text-decoration: none;
+  color: inherit;
+}
+.product:hover { color: inherit; }
+
+.product__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background: var(--wm-cool-grey);
+  overflow: hidden;
+}
+.product__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* base sits above the hover frame and fades away to reveal it */
+.product__img--base { transition: opacity 240ms ease; opacity: 1; }
+.product:hover .product__img--base { opacity: 0; }
+
+.product__info {
+  position: relative;
+  height: 44px;
+  width: 100%;
+  flex-shrink: 0;
+  border-top: 1px solid var(--wm-charcoal);
+  background: var(--wm-canvas);
+  padding: 6px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2px;
+  font-family: var(--font-clash);
+  font-weight: 300;
+}
+
+.product__name {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--wm-charcoal);
+  transition: opacity 240ms ease;
+  opacity: 1;
+  /* Sit on the same baseline the hover label uses, so the two states swap in
+     place. `position: relative` + `top` moves it visually only — the flex
+     layout and the 44px row height are untouched. Re-stated at >=1200px,
+     where the gram row shifts down to make room for the metric. */
+  top: -1.5px;
+}
+.product:hover .product__name { opacity: 0; }
+
+/* Gram Data — Source Code, uppercase label, lowercase g on the value */
+.product__gram {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 6px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+  font-family: var(--font-source-code);
+  text-transform: uppercase;
+  color: var(--wm-gram-metric);   /* Gram Data — #F05A3C */
+  transition: opacity 240ms ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.product:hover .product__gram { opacity: 1; }
+/* nowrap + a tighter gap: at 4 columns on a ~768px viewport the label, gap and
+   value sum to exactly the available width, so the label was wrapping to two
+   lines. Pre-existing; the sizes are unchanged, only the wrap and the gap. */
+.product__gram-label { font-size: 12px; letter-spacing: 0.02em; white-space: nowrap; }
+.product__gram-value { font-size: 14px; letter-spacing: 0.02em; text-transform: none; }
+
+@media (min-width: 620px) { .product:nth-child(4n) { border-right: 0; } }
+@media (max-width: 619px) { .product:nth-child(2n) { border-right: 0; } }
+
+/* No hover on touch: the gram data would be unreachable, so both lines are
+   shown together (brand system: hover must never be required to understand
+   a product). */
+@media (hover: none) {
+  .product__info { height: auto; min-height: 52px; padding-bottom: 8px; }
+  .product__name { opacity: 1 !important; }
+  .product__gram { position: relative; left: auto; right: auto; top: auto; opacity: 1 !important; width: 100%; }
+  .product__img--base { opacity: 1 !important; }
+}
+
+
+/* ==========================================================================
+   PRODUCT CARD — Gram metric treatment
+   Gram value in Martian Grotesk Expanded Black, matching the Gram
+   Visualization. Sizing is derived: for a 4-character value the face's ink is
+   0.800em above the baseline and 0.223em below, so 1.023em total. The row is
+   44px with 6px padding — 32px inside — and holding a ~2px safety margin top
+   and bottom gives 28px of ink, so 28 / 1.023 = 27px.
+
+   WIDTH IS THE CONSTRAINT, NOT HEIGHT. "RECYCLED PLASTIC" at 14px is 139px and
+   the widest value (433g) is 94px; with the 12px gap and a 2px inset the row
+   needs 247px. The 4-column grid only supplies that above ~1200px viewport
+   (300px cards). Below it the label alone would fill the row, the value would
+   overflow and the label would wrap — so narrower cards keep the established
+   compact treatment instead. Same content, same order, same alignment.
+   ========================================================================== */
+@media (min-width: 1200px) {
+  .product__gram {
+    /* span the full inner height so the value can sit against both edges */
+    top: 6px;
+    bottom: 6px;
+    right: 16px;            /* 14px row padding + 2px so it never touches */
+    align-items: baseline;  /* label and value keep a shared baseline */
+    /* baseline alignment parks the line at cross-start; this centres the ink */
+    padding-top: 1.5px;
+  }
+
+  .product__gram-label {
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .product__gram-value {
+    font-family: var(--font-metric);
+    font-weight: var(--metric-weight);   /* 900 — Black */
+    font-stretch: var(--metric-width);   /* 125% — Expanded */
+    font-size: 27px;
+    line-height: 1;
+    letter-spacing: var(--metric-tracking);
+    text-transform: none;
+    font-synthesis: none;   /* never let a fallback fake the weight or width */
+    text-align: right;
+  }
+
+  /* the gram row drops to the lower baseline, so the title follows it */
+  .product__name { top: 8.5px; }
+}

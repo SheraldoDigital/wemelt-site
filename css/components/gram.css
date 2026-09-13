@@ -1,0 +1,122 @@
+/* ==========================================================================
+   GRAM SYSTEM — Gram Visualization (Martian Grotesk) + Brand Mark = Gram Seal,
+   beside the community metrics table.
+   ========================================================================== */
+
+.gram {
+  background: var(--wm-cool-grey);
+  border-bottom: 1px solid var(--wm-charcoal);
+}
+
+.gram__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.gram__seal {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(16px, 2vw, 24px) var(--pad-x);
+  border-right: 1px solid var(--wm-charcoal);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+
+/* Brand Mark signs the metric — one tonal unit with it, never a second colour */
+.gram__mark {
+  position: absolute;
+  right: -1.31%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44.6%;
+  aspect-ratio: 1 / 1;
+  opacity: 0.42;
+  background-color: var(--wm-light-grey);
+  pointer-events: none;
+}
+
+/* Gram Visualization — the page's one impact metric, so it carries the one
+   typeface reserved for metrics. Martian Grotesk Expanded Black.
+   The design pinned width:439px/height:48px here, which clips the glyphs
+   once the clamp passes ~48px; the figure is allowed to size itself. */
+.gram__value {
+  position: relative;
+  align-self: flex-start;   /* hug the figure rather than stretch the column */
+  font-family: var(--font-metric);
+  font-weight: var(--metric-weight);
+  font-stretch: var(--metric-width);
+  font-size: clamp(41px, 5.1vw, 75px);
+  line-height: var(--metric-leading);
+  letter-spacing: var(--metric-tracking);
+  color: var(--wm-gram-metric);   /* Gram Visualization — #F05A3C */
+  /* never let a fallback face fake the weight or width */
+  font-synthesis: none;
+}
+
+.gram__caption {
+  position: relative;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: var(--wm-deep-navy);
+}
+
+.gram__stats {
+  padding: clamp(10px, 1.4vw, 16px) var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gram__stat {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 9px 0;
+  border-bottom: 1px solid var(--wm-charcoal);
+  font-family: var(--font-source-code);
+  font-size: var(--text-source-info);
+  letter-spacing: 0.02em;
+  color: var(--wm-deep-navy);
+}
+.gram__stat:last-child { border-bottom: 0; }
+.gram__stat dt { text-transform: uppercase; }
+.gram__stat dd { margin: 0; text-align: right; }
+
+/* Expanded Black is wide, and the seal panel is tightest just after the grid
+   splits in two: at 640px the figure would clear its column by only ~16px, with
+   no room for the number to grow (it only ever goes up). Ease the size down a
+   step across that band. Weight, width, tracking and leading are untouched, so
+   the character of the metric is identical — this is size only. Hands back to
+   the approved clamp at 900px. */
+@media (min-width: 620px) and (max-width: 899px) {
+  .gram__value { font-size: clamp(34px, 4.4vw, 44px); }
+}
+
+@media (max-width: 619px) {
+  .gram__seal { border-right: 0; border-bottom: 1px solid var(--wm-charcoal); }
+  .gram__mark { width: 38%; opacity: 0.34; }
+}
+
+/* ==========================================================================
+   COMMUNITY BAND — closing Plantin statement
+   ========================================================================== */
+
+.community {
+  background: var(--wm-cool-grey);
+  border-bottom: 1px solid var(--wm-charcoal);
+  display: flex;
+  align-items: center;
+  padding: 28px var(--pad-x);
+}
+.community__statement {
+  max-width: 30ch;
+  font-family: var(--font-plantin);
+  font-weight: 400;
+  font-size: clamp(24px, 2.6vw, 31px);
+  line-height: 1.1;
+  color: var(--wm-deep-navy);
+}
